@@ -1,0 +1,122 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to SOURADEEP MUKHERJEE, including new features and bug fixes.
+---
+
+## Recent Releases
+
+Stay informed about all changes to SOURADEEP MUKHERJEE. You receive automatic notifications for major releases, and you check this page for detailed breakdowns of new features, improvements, and fixes.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added support for custom brand colors, enabling you to set `#3B82F6` as your primary theme color directly in settings.
+- Introduced expandable FAQ sections with `default-open` controls for better user experience in documentation pages.
+
+## Improvements
+
+- Enhanced MDX parsing to handle nested code blocks with 4 backticks automatically.
+- Optimized rendering speed for pages with multiple `<Columns>` and `<Cards>` components.
+
+## Bug Fixes
+
+- Fixed parsing errors caused by unescaped `{` and `}` characters in prose text.
+- Resolved heading hierarchy issues where H3 skipped after H2.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated `<Update>` components for changelog pages with tag support like `["breaking"]` and `["security"]`.
+- Added `<ParamField>` and `<ResponseField>` for comprehensive API documentation.
+
+## Bug Fixes
+
+- Corrected Mermaid diagram rendering – now uses proper code block syntax without `<Mermaid>` components.
+- Fixed attribute quoting in JSX components to always use double quotes.
+
+## Improvements
+
+- Improved accessibility with required `alt` text on all `<Image>` components.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## Initial Release
+
+- Core MDX documentation engine with support for 15+ components like `<Steps>`, `<Tabs>`, and `<Callout>`.
+- Full YAML frontmatter validation with no blank lines allowed.
+- Built-in escaping for special characters such as `<` and `{API_KEY}`.
+
+## Breaking Changes
+
+- Removed legacy H1 headings – all pages now start with H2.
+
+</Update>
+
+## Upcoming Roadmap
+
+Explore what's coming next to SOURADEEP MUKHERJEE. You provide feedback via GitHub issues to prioritize these features.
+
+<Columns cols={2}>
+  <Card title="Advanced Search" icon="search" href="https://github.com/souradeep-mukherjee/docs/issues">
+    Full-text search across all documentation pages with syntax highlighting.
+  </Card>
+  <Card title="Versioned Docs" icon="git-branch" href="https://github.com/souradeep-mukherjee/docs/issues">
+    Support for multiple documentation versions with easy switching.
+  </Card>
+  <Card title="AI Assistant" icon="bot" href="https://github.com/souradeep-mukherjee/docs/issues">
+    Context-aware help integrated into the docs interface.
+  </Card>
+  <Card title="Export Tools" icon="download" href="https://github.com/souradeep-mukherjee/docs/issues">
+    PDF and Markdown export for your entire documentation space.
+  </Card>
+</Columns>
+
+## Upgrade Instructions
+
+Follow these steps to upgrade SOURADEEP MUKHERJEE to the latest version.
+
+<Steps>
+  <Step title="Backup Your Docs" icon="database">
+    Export your current documentation to avoid data loss.
+
+    ```
+    npm run docs:export
+    ```
+  </Step>
+  <Step title="Update Package" icon="package">
+    Install the latest version using your preferred method.
+
+    <CodeGroup tabs="npm,yarn">
+    ````bash
+    npm install souradeep-mukherjee@latest
+    ````
+    ````bash
+    yarn add souradeep-mukherjee@latest
+    ````
+    </CodeGroup>
+  </Step>
+  <Step title="Run Migrations" icon="settings">
+    Apply any database or config migrations.
+
+    ```
+    npm run docs:migrate
+    ```
+  </Step>
+  <Step title="Restart Server" icon="refresh-cw">
+    Restart your documentation server to apply changes.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Subscribe to the RSS feed at `/changelog.xml` or watch the GitHub repo for instant notifications on new releases.
+</Callout>
+
+<Expandable title="Detailed Migration Guide" default-open="false">
+  For complex setups, review the full migration notes. Key changes include updated component syntax and stricter YAML parsing.
+</Expandable>

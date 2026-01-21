@@ -1,0 +1,110 @@
+---
+title: Core Features
+description: Explore the main capabilities of SOURADEEP MUKHERJEE for seamless documentation management and collaboration.
+---
+
+## Overview
+
+SOURADEEP MUKHERJEE provides powerful tools to manage your documentation efficiently. You organize content into folders, track changes with version control, collaborate seamlessly, and find information quickly through advanced search. These features ensure your docs stay current and accessible.
+
+<Columns cols={2}>
+  <Card title="Document Organization" icon="folder" href="#organization">
+    Structure your docs with intuitive folders and nesting.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="#version-control">
+    Track page history and revert changes effortlessly.
+  </Card>
+  <Card title="Collaboration" icon="users" href="#collaboration">
+    Share and co-edit docs with team members.
+  </Card>
+  <Card title="Search & Filtering" icon="search" href="#search">
+    Locate content instantly with smart filters.
+  </Card>
+</Columns>
+
+## Document Organization and Folders
+
+Create a hierarchical structure for your documentation using folders. You nest pages deeply for complex projects, making navigation intuitive.
+
+<Steps>
+  <Step title="Create Folder" icon="folder-plus">
+    Navigate to your workspace and select **New Folder**. Name it descriptively, like `API Reference`.
+  </Step>
+  <Step title="Add Pages" icon="file-plus">
+    Inside the folder, create or drag pages. Use the sidebar to reorder.
+  </Step>
+  <Step title="Nest Folders" icon="folder">
+    Right-click a folder to create subfolders for deeper organization.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Use consistent naming conventions like `v1.0/` for versions to keep things tidy.
+</Callout>
+
+## Version Control for Pages
+
+Every edit creates a new version. You view history, compare changes, and restore previous states.
+
+```javascript
+// Fetch page versions via API
+const response = await fetch('https://api.example.com/docs/pages/{pageId}/versions');
+const versions = await response.json();
+console.log(versions); // Array of version objects
+```
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Revert to specific version
+  await fetch('https://api.example.com/docs/pages/{pageId}/revert', {
+    method: 'POST',
+    body: JSON.stringify({ versionId: 'ver_abc123' })
+  });
+  ```
+  ```python
+  import requests
+  # Revert to specific version
+  requests.post('https://api.example.com/docs/pages/{pageId}/revert',
+                json={'versionId': 'ver_abc123'})
+  ```
+</CodeGroup>
+
+## Collaboration Tools and Sharing Options
+
+Invite team members and control permissions. Share public links or embed pages.
+
+<Tabs>
+  <Tab title="Team Invite" icon="users">
+    Go to **Settings > Members** and add emails. Assign roles like Editor or Viewer.
+  </Tab>
+  <Tab title="Public Sharing" icon="share-2">
+    Toggle **Publish** on a page for a shareable URL: `https://docs.example.com/your-space/page-slug`.
+  </Tab>
+  <Tab title="Permissions" icon="shield">
+    Set granular access: read-only for folders or edit for specific pages.
+  </Tab>
+</Tabs>
+
+## Search and Filtering Functionalities
+
+Search across all docs with full-text matching. Filter by folder, tag, or date.
+
+| Filter Type | Description | Example |
+|-------------|-------------|---------|
+| Folder | Limit to specific paths | `folder:api/` |
+| Tag | Match labeled content | `tag:beta` |
+| Date | Recent changes | `updated>2024-01-01` |
+| Type | Pages or folders | `type:page` |
+
+<Expandable title="Advanced Search Queries" default-open="false">
+  Combine filters: `api/ tag:beta updated>2024-01-01`. Use the API for programmatic search:
+
+  ```bash
+  curl "https://api.example.com/docs/search?q=authentication&filter=folder:api/" \
+    -H "Authorization: Bearer YOUR_API_KEY"
+  ```
+</Expandable>
+
+<Callout kind="info">
+  Pro tip: Index your docs regularly for the fastest search results.
+</Callout>
